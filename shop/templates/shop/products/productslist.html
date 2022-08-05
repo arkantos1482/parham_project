@@ -1,0 +1,19 @@
+{% extends 'parent/base.html' %}
+
+
+{% block title %} Products({{ productsCount }}) {% endblock %}
+
+{% block content %} 
+
+{% for product in products %}
+	<br>
+	<div style="margin-top:20px;padding:10px;border: solid black 1px; width:70%;margin:auto;text-align:center">
+		<h1>{{ product.name }}</h1>
+		<p>{{ product.short_caption }}</p>
+		<h5 style='background-color:green;padding:5px;width:145px;font-weight:bold;margin:auto'>Have/NotHave: {{ product.status }}</h5>
+		<h5 style="color:blue;font-weight:bold;">Price: {{ product.price }} {{ product.mony }}</h5>
+		<a href="{{ product.get_absolute_url }}"><button class="btn-hover color-2">See product</button></a>
+	</div>
+{% endfor %}
+
+{% endblock %}
